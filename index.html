@@ -40,6 +40,46 @@
       <section id="attackBooks" class="container-fluid mt-5">
         <div id="bookShelf" class="row"></div>
       </section>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content pokemon">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                Your cart
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              Do you want to add this item to your cart?
+            </div>
+            <div class="modal-footer d-flex justify-content-between">
+              <button
+                type="button"
+                class="btn btn-danger bi bi-cart-dash"
+                data-bs-dismiss="modal"
+              ></button>
+              <button
+                type="button"
+                class="btn btn-success bi bi-cart-check"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer></footer>
     <script

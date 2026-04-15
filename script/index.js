@@ -27,10 +27,11 @@ const getLibrary = function () {
                             ${book.category}<br>
                             <strong>${book.price}€</strong>
                         </p>
-                        <button class="btn btn-success bi bi-trash w-25 mt-auto" onclick="">
-                        </button>
+                        <div class= "container d-flex justify-content-between">
+                        <button type="button" class="btn bi bi-cart3 btn-success mt-auto" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></button>
                         <button class="btn btn-danger bi bi-trash w-25 mt-auto" onclick="this.closest('.col-12').remove()">
                         </button>
+                        </div>
                     </div>
                 </div>
             </div>`;
