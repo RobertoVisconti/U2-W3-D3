@@ -67,7 +67,6 @@ const addToCart = () => {
 };
 const removeFromCart = () => {
   if (currentBook) {
-    // Rimuove tutti i libri con lo stesso ASIN dal carrello
     shoppingCart = shoppingCart.filter(
       (item) => item.asin !== currentBook.asin,
     );
