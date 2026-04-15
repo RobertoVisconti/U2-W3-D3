@@ -28,7 +28,13 @@ const getLibrary = function () {
                             <strong>${book.price}€</strong>
                         </p>
                         <div class= "container d-flex justify-content-between">
-                        <button type="button" class="btn bi bi-cart3 btn-success mt-auto" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></button>
+                        <button 
+                        type="button" 
+                        class="btn btn-success bi bi-cart3 mt-3" 
+                        onclick="setBookForModal('${book.asin}', '${book.title}', '${book.price}')" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#staticBackdrop">
+                        </button>
                         <button class="btn btn-danger bi bi-trash w-25 mt-auto" onclick="this.closest('.col-12').remove()">
                         </button>
                         </div>
@@ -43,3 +49,30 @@ const getLibrary = function () {
 };
 
 getLibrary();
+
+let shoppingCart = JSON.parse(localStorage.getItem("myCart")) || [];
+let currentBook = null;
+
+const setBookForModal = (asin, title, price) => {
+  currentBook = { asin, title, price };
+  console.log("Libro selezionato per il modale:", currentBook);
+};
+const addToCart = () => {
+  if (currentBook) {
+    shoppingCart.push(currentBook);
+    localStorage.setItem("myCart", JSON.stringify(shoppingCart));
+    alert(`${currentBook.title} aggiunto al carrello!`);
+    console.log("Carrello aggiornato:", shoppingCart);
+  }
+};
+const removeFromCart = () => {
+  if (currentBook) {
+    // Rimuove tutti i libri con lo stesso ASIN dal carrello
+    shoppingCart = shoppingCart.filter(
+      (item) => item.asin !== currentBook.asin,
+    );
+    localStorage.setItem("myCart", JSON.stringify(shoppingCart));
+    alert(`Rimosso dal carrello.`);
+    console.log("Carrello aggiornato:", shoppingCart);
+  }
+};

@@ -48,7 +48,6 @@
         data-bs-keyboard="false"
         tabindex="-1"
         aria-labelledby="staticBackdropLabel"
-        aria-hidden="true"
       >
         <div class="modal-dialog">
           <div class="modal-content pokemon">
@@ -70,11 +69,13 @@
               <button
                 type="button"
                 class="btn btn-danger bi bi-cart-dash"
-                data-bs-dismiss="modal"
+                onclick="removeFromCart()"
               ></button>
+
               <button
                 type="button"
                 class="btn btn-success bi bi-cart-check"
+                onclick="addToCart()"
               ></button>
             </div>
           </div>
